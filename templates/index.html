@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login and Registration</title>
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='wall.css')}}">
+</head>
+<body>
+    <div id='wrapper'>
+
+        <h1 class='loghead'>Log In And Registration For The Wall!!</h1>
+        
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class='flash_msg'>
+                            <p class='red'>{{message}}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        
+        <form action='/login' method='POST'>
+            <h2>Please Login</h2>
+            <label for="logemail">Email:<input type="text" name="logemail" id="logemail"></label>
+            <label for="logpassword">Password:<input type="password" name="logpassword" id="logpassword"></label>
+            <input type="submit" value="Login" class="logbut">
+        </form>
+
+        <form action='/registration' method='POST'>
+            <h2>Register New User</h2>
+            <label for="firstName">First Name:<input type="text" name="firstName" id="firstName"></label>
+            <label for="lastName">Last Name:<input type="text" name="lastName" id="lastName"></label>
+            <label for="regemail">Email:<input type="text" name="regemail" id="regemail"></label>       
+            <label for="regpassword">Password:<input type="password" name="regpassword" id="regpassword"></label>
+            <label for="regpassword2">Password Confirmation:<input type="password" name="regpassword2" id="regpassword2"></label>
+            <input type="submit" value="Register" class="logbut">
+        </form>
+
+    </div>
+</body>
+</html>
